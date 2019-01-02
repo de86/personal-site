@@ -1,24 +1,20 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import styles from './styles'
-
-import {getClassNamesFromStyles} from '../../helpers/css';
+import styles from './styles.module.css';
 
 const PostPreview = ({slug, title, excerpt, date}) => {
-  const classNames = getClassNamesFromStyles(styles);
-
   return (
-    <div className={classNames.row}>
-        <div className={classNames.container}>
-          <h3 className={classNames.title}>
-            <Link className={classNames.titleLink} to={slug}>
+    <div className={styles.row}>
+        <div className={styles.container}>
+          <h3 className={styles.title}>
+            <Link className={styles.titleLink} to={slug}>
               {title}
             </Link>
           </h3>
         <small>{date}</small>
         <p
-          className={classNames.excerptText}
+          className={styles.excerptText}
           dangerouslySetInnerHTML={{ __html: excerpt }}
         />
       </div>

@@ -1,23 +1,20 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import {getClassNamesFromStyles} from '../../../helpers/css';
+import logow from '../../../assets/logow.svg';
 
-import styles from './styles';
-import logow from '../../../assets/logow.svg'
+import styles from "./styles.module.css";
 
 class Template extends React.Component {
   render() {
     const { children } = this.props;
 
-    const classNames = getClassNamesFromStyles(styles);
-
     return (
-      <div className={classNames.wrapper}>
-        <div className={classNames.navContainer}>
-          <div className={classNames.navContent}>
+      <div className={styles.wrapper}>
+        <div className={styles.navContainer}>
+          <div className={styles.navContent}>
             <Link to="/" rel="home">
-                <img src={logow} alt="Dave Elliott's Blog" className={classNames.logo} />
+                <img src={logow} alt="Dave Elliott's Blog" className={styles.logo} />
             </Link>
           </div>
         </div>

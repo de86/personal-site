@@ -1,0 +1,36 @@
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heroContainer {
+    text-align: center;
+}
+
+.navContainer {
+    height: 10px;
+    background-image: linear-gradient(20deg, #02f4d0, #8f02f4);
+    box-shadow: 0px -11px 78px -7px rgba(0,0,0,0.75);
+}
+
+.logo {
+    display: block;
+    width: 200px;
+    padding: 45px 0;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+.title {
+    display: block;
+    padding-top: 70px;
+    text-align: center;
+    z-index: 10;
+    color: #f5f5f5;
+}
+
+.linkLogo {
+    box-shadow: none;
+    text-decoration: none;
+    color: inherit;
+}

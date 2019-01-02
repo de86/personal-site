@@ -26,6 +26,9 @@ export default {
     'h1,h2,h3,h4,h5,h6': {
       color: '#38a2dc',
     },
+    h2: {
+        marginTop: '55px'
+    },
     a: {
       color: '#9052c6',
       textDecoration: 'none',

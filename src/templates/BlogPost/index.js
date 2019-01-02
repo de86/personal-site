@@ -3,13 +3,10 @@ import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import get from 'lodash/get';
 
-import styles from './styles';
-import {getClassNamesFromStyles} from '../../helpers/css';
+import styles from './styles.module.css';
 
 import Bio from '../../components/Bio';
 import BlogPostLayout from '../../components/Layout/BlogPostLayout';
-
-const classNames = getClassNamesFromStyles(styles);
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -25,14 +22,14 @@ class BlogPostTemplate extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
-        <div className={classNames.container}>
-            <h1>{post.frontmatter.title}</h1>
-            <p className={classNames.postDate}>
+        <div className={styles.container}>
+            <h1 className={styles.title}>{post.frontmatter.title}</h1>
+            <p className={styles.postDate}>
                 {post.frontmatter.date}
             </p>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
             <Bio />
-            <ul className={classNames.blogNavButtons}>
+            <ul className={styles.blogNavButtons}>
             <li>
                 {
                 previous &&

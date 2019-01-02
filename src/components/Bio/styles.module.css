@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    margin: 50px auto;
+}
+
+.wrapper p {
+    margin-bottom: 0;
+}
+
+.avatar {
+    margin-bottom: 0;
+    margin-right: 15px;
+    border-radius: 100%;
+    width: 75px;
+    height: 75px;
+}
+
+.divider {
+    margin-bottom: 25px;
+}

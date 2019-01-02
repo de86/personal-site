@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import {getClassNamesFromStyles} from '../../../helpers/css';
-
-import styles from './styles';
+import styles from './styles.module.css';
 import logogradient from '../../../assets/logogradient.svg';
 
 class Template extends React.Component {
@@ -11,13 +9,11 @@ class Template extends React.Component {
     const { location, children } = this.props;
     const rootPath = `${__PATH_PREFIX__}/`;
 
-    const classNames = getClassNamesFromStyles(styles);
-
     return (
-      <div className={classNames.wrapper}>
-        <div className={classNames.navContainer} />
-        <div className={classNames.heroContainer}>
-          <img src={logogradient} alt="Dave Elliott's Blog" className={classNames.logo} />
+      <div className={styles.wrapper}>
+        <div className={styles.navContainer} />
+        <div className={styles.heroContainer}>
+          <img src={logogradient} alt="Dave Elliott's Blog" className={styles.logo} />
         </div>
         {children}
       </div>
