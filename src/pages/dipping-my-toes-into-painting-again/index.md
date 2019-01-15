@@ -11,4 +11,4 @@ Recently though, I have been watching lots of artists on youtube and remembering
 
 For some reason I have always enjoyed koi carp paintings. I think because of the combination of simplicity and bright colours so below is the painting of a koi carp I conjured up. Considering the amount of time since I tried to paint something properly, it's not terrible. (Sorry for the potato quality. it's on a canvas so i can't scan it).
 
-![Blua and Gold Koi Carp painted by Dave Elliott](./koi_blue_min.jpg)
+![Blue and Gold Koi Carp painted by Dave Elliott](./koi_blue_min.jpg)
