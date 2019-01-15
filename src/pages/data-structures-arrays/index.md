@@ -4,9 +4,7 @@ date: "2019-01-12T21:00:00.000Z"
 ---
 
 ## Before We Start
-At the beginning of the year I decided to improve my knowledge of programming and computer science. While I have been a professional dev for some years I have never studied, or simply forgotten (It's been over 10 years since I was at uni) some of the core Computer Science concepts. 
-
-One of the things I have always wanted to know more about is data structures. I already had an idea of what the main data structures were but I had never studied them in depth, their advantages, disadvantages, when to use them or their implementations and so I have decided to learn about them, implement them and then do a brief write-up about each one.
+At the beginning of the year I decided to improve my knowledge of programming and computer science and one of the things I have always wanted to improve my knowledge of is data structures. As part of this series of posts I'm going to study them more in depth and try to learn their advantages, disadvantages, when to use them and their implementations.
 
 These notes are aimed at myself as a way of documenting what I have learned and so may contain some incoherent babbling or simplificattions, however, if anyone else finds these notes useful then that is a definite bonus!
 
