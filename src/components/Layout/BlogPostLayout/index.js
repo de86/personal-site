@@ -19,6 +19,9 @@ class Template extends React.Component {
           </div>
         </div>
         {children}
+        <div className={styles.footer}>
+            &copy; David Antony Elliott 2019
+        </div>
       </div>
     );
   }

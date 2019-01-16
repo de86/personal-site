@@ -2,9 +2,6 @@
     padding: 20px 0;
     transition: background-color 0.2s;
 }
-.row:first-child {
-    padding-top: 0;
-}
 .row:hover {
     background-color: #f3f3f3;
 }
