@@ -8,12 +8,20 @@
     background-image: linear-gradient(20deg, #02f4d0, #8f02f4);
     box-shadow: 0px -11px 78px -7px rgba(0,0,0,0.75);
     text-align: center;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .logo {
     box-sizing: content-box;
     height: 68px;
     margin-bottom: 0;
-    padding: 12px 0;
     vertical-align: middle;
+    transition: height 0.4s;
+  }
+
+  .logo:hover {
+    height: 88px;
   }

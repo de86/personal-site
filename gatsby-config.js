@@ -57,13 +57,21 @@ module.exports = {
         icon: `src/assets/logo-bw.png`,
       },
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-offline',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    {
+        resolve: 'gatsby-plugin-netlify',
+        options: {
+            headers: {
+                "cache-control": "no-cache"
+            }
+        }
+    }
   ],
 }
