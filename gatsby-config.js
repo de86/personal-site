@@ -3,7 +3,7 @@ module.exports = {
     title: 'Dave Elliott\'s blog',
     author: 'Dave Elliott',
     description: 'Just another blog',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    siteUrl: 'https://www.dantony.uk',
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [
@@ -54,7 +54,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/gatsby-icon.png`,
+        icon: `src/assets/logo-bw.png`,
       },
     },
     `gatsby-plugin-offline`,
