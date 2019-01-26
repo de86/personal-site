@@ -11,23 +11,23 @@ The linked list itself is simply a wrapper class that contains a reference to th
 
 ## Advantages
 ### Dynamic Sizes
-Where arrays make you declare their size up front and will never change linked lists do not require knowing how big your list will be beforehand. They will also grow and shrink as needed without any issues
+Where arrays make you declare their size up front and will never increase or decrease in size, linked lists do not require you to know how big your list will be beforehand. They will also grow and shrink as needed without any issues
 
 ### No Wasted Memory
-An array must know up-front how big it will need to be so it can reserve a large enough slot in memory. This can lead to reserved memory that is never used if the array is never filled. Linked lists grow and shrink dynamically without reserving memory ahead of time so only the memory that is required at any time is used.
+An array must know up-front how big it will need to be so it can reserve a large enough section of memory. This can lead to reserved memory that is never used if the array is never filled. Linked lists grow and shrink dynamically without reserving memory ahead of time so only the memory that is required at any time is used.
 
 ### Inserting and Removing Values
-As linked lists nodes aren't held in contiguous memory it becomes very easy to add and remove data to a linked list. It's just a case of creating a new node in memory and editing the existing nodes pointers to point to the right nodes. We don't have to worry about copying values from one memory slot to the next like we do with *arrays* 
+As linked lists nodes aren't held in contiguous memory it becomes very easy to add and remove data to a linked list. It's just a case of creating a new node in memory and editing the existing nodes pointers to point to the right nodes. We don't have to worry about copying values from one memory slot to the next like we do with [arrays](https://www.dantony.uk/data-structures-arrays/).
 
 ## Disadvantages
 ### Slow Traversal Speed
-One of the downsides of a linked lists data not being held in contiguous memory is that we can't just jump straight to a value in memory like we can with an array. We must walk over each node, moving to the next until we get to the node that we need. This happens in O(n) time (I will be going into basic Algorithms in the future) which basically means it takes longer for every node we need to traverse over. It will take longer to step over larger linked lists than smaller linked lists.
+One of the downsides of a linked lists data not being held in contiguous memory is that we can't just jump straight to a value in memory like we can with an array. We must walk over each node, moving from one to the next until we get to the node that we need. This happens in O(n) time (I will be going into basic algorithms in the future) which basically means it takes longer to look over the entire list for every extra node we add. It will take longer to step over larger linked lists than smaller linked lists.
 
 ### Reverse Traversal
 Traversing backwards through a singly linked list (a linked list where each node only contains a reference to it's next node and not it's previous node) is difficult and could either take a very long time or use extra memory. Doubly linked lists make this trivial though.
 
 ### Larger Memory Usage
-A linked list of the same size as an equivalent array will always use more memory. This is because each node must contain a reference to the next node in the list as well as it's value.
+A linked list containing the same number of items as an equivalent array will always use more memory. This is because each node must contain a reference to the next node in the list as well as it's value.
 
 ## Implementation
 ### Constructor
@@ -100,9 +100,9 @@ addNodeToTail(value) {
 ```
 
 ### Remove Tail Node
-Despite having a reference to the tail removing the last node in the last is a bit more complex than the previous examples. Not too much though. To remove the last node we need to find the next to last node in order to set it's reference to it's next node to null. This is how we know we have reached the end the list when walking over it.
+Despite having a reference to the tail removing the last node in the last is a bit more complex than the previous examples, though not too much though. This is because to remove the last node we need to know about the tail, but also the node previous to the tail node.
 
-We start by stepping over all of the nodes in our list and keeping a reference to the current node and the previous node. Once we hit a node whose nextNode pointer is null we know we have reached the end of our list and we have references to our last node and our next-to-last node. From here its a simple case of setting our next-to-last nodes nextNode pointer to null and setting the tail of our linked list to this next-to-last node.
+We start by stepping over all of the nodes in our list and keeping a reference to the current node and the previous node. Once we hit a node whose nextNode pointer is null we know we have reached the end of our list. From here its a simple case of setting our next-to-last nodes nextNode pointer to null and setting the tail of our linked list to this next-to-last node.
 
 ```javascript
 removeTailNode() {
@@ -127,7 +127,7 @@ removeTailNode() {
 ```
 
 ### Insert At Index
-We can still modify data in a linked list with an index just like we can with an array. In order to insert a node at a given index we need to walk over our linked list from the start until we reach our target node. Once there we can set the nextNode reference of the previous node at our new node, then set the nextNode reference of our new node to the current node. This has the effect of inserting the new node at the given index. We should do a check to ensure we have a valid index. i.e. a non negative number. We can also take a shortcut and re-use our addNodeToHead method if the given index is 0.
+We can still modify data in a linked list with an index just like we can with an array. In order to insert a node at a given index we need to walk over our linked list from the start until we reach our target node. Once there we can set the nextNode reference of the previous node to our new node,then set the nextNode reference of our new node to the current node. This has the effect of inserting the new node at the given index. We should do a check to ensure we have a valid index. i.e. a non negative number. We can also take a shortcut and re-use our addNodeToHead method if the given index is 0.
 
 ```javascript
 insertNodeAtIndex(value, index) {
@@ -217,24 +217,24 @@ getNodeByIndex(index)  {
 }
 ```
 
-And that's it. A basic implementation of a linked list. You could add more to this if you wanted. You could add a length property that is properly updated when adding and removing nodes. You could also add specific methods to return the head and tail methods. You can see the [full source code here](https://github.com/de86/datastructures/blob/master/LinkedList.js)
+And that's it. A basic implementation of a linked list. You could add more to this if you wanted. You could add a length property that is properly updated when adding and removing nodes. You could also add specific methods to return the head and tail methods. These methods would be needed in a language like Java or C# where you would set the head and tail class variables to private to avoid accidental modification of these values. You can see the [full source code here](https://github.com/de86/datastructures/blob/master/LinkedList.js)
 
 ## Types Of Linked Lists
 There a few different types of linked lists I will briefly mention. 
 
 ### Singly Linked Lists
-In singly linked lists each node contains a pointer to the next node. This is the example I have given above. Traversing backwards through a singly linked list is not very efficient and so singly linked lists are probably not the best choice if that's something you will need to.
+In singly linked lists each node contains a pointer to the next node. This is the example I have given above. Traversing backwards through a singly linked list is not very efficient and so singly linked lists are probably not the best choice if that's something you know you will need to.
 
 ### Doubly Linked Lists
-Each node in a doubly linked list contains a pointer to the next node as well as the previous node. This makes traversing through the list backwards and deleting the tail node much easier. A doubly linked list also contains a pointer to the tail node (The last item in the list). This makes replacing and adding the tail node trivially easy also.
+Each node in a doubly linked list contains a pointer to the previous node as well as the next node. This makes traversing through the list backwards and deleting the tail node much easier. A doubly linked list also contains a pointer to the tail node (The last item in the list). This makes replacing and adding the tail node trivially easy.
 
 ### Circular Linked Lists
-In a circular linked list the tail of the list contains a pointer to the head node of the list rather than a null pointer. In a circular doubly linked list the tail points to the head and the head also points back to the tail as all nodes point to their next and previous nodes
+In a circular linked list the tail of the list contains a pointer to the head node of the list rather than a null pointer. In a circular doubly linked list the tail points to the head and the head also points back to the tail as all nodes point to their next and previous nodes. This means you could essentially loop over the entire list indefinitely very easily.
 
 ## Conclusion
-Linked lists are great if you don't know how large you need your collection of data to be at the time you create your list or if you know that the size of the list will change over time. It's also great if you know ahead of time that you will be doing lots of insertions and deletions of data items.
+Linked lists are great if you don't know how large you need your collection of data to be or if you know that the size of the list will change over time. It's also great if you know ahead of time that you will be doing lots of insertions and deletions of data items.
 
-It may not be the best choice if you need to do lots of searching for values as walking over the list takes O(n) time and will take longer as the list increases in size.
+It may not be the best choice if you need to do lots of searching for values as walking over the list takes O(n) time meaning it will take longer and longer as the list increases in size.
 
 ## Source Code
 Below is the javascript linked list class definition I have used in this post. You can also get the full source from Github [here](https://github.com/de86/datastructures/blob/master/LinkedList.js).
