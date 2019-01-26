@@ -60,7 +60,8 @@ export default {
     pre: {
         backgroundColor: '#f0f6f8',
         borderRadius: '3px',
-        padding: '15px'
+        padding: '15px',
+        overflow: 'scroll'
     },
     [MOBILE_MEDIA_QUERY]: {
       html: {
