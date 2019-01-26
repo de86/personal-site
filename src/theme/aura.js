@@ -57,6 +57,11 @@ export default {
     'blockquote cite:before': {
       content: '"— "',
     },
+    pre: {
+        backgroundColor: '#f0f6f8',
+        borderRadius: '3px',
+        padding: '15px'
+    },
     [MOBILE_MEDIA_QUERY]: {
       html: {
         fontSize: `${16 / 16 * 100}%`,
