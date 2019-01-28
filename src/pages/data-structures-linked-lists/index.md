@@ -3,7 +3,6 @@ title: "Data Structures: Linked Lists"
 date: "2019-01-26T00:00:00.000Z"
 ---
 
-# Data Structures: Linked Lists
 ## What is a Linked List?
 A linked list is a data structure that holds data items, also known as nodes, in a linear sequence (One node points to the next node in the list). The nodes themselves, however, are not held sequentially in memory like an [array](https://www.dantony.uk/data-structures-arrays/). This is possible as each node contains it's data, a number, string or object for example, as well as a pointer to the next nodes location in memory. The last node simply contains a null pointer which signals we have reached the end of the list.
 
