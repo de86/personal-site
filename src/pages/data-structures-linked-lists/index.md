@@ -29,6 +29,18 @@ Traversing backwards through a singly linked list (a linked list where each node
 A linked list containing the same number of items as an equivalent array will always use more memory. This is because each node must contain a reference to the next node in the list as well as it's value.
 
 ## Implementation
+### Nodes
+First we must create the nodes that will be contained inside of our linked lists. These are simple wrappers around the data we want to store that have a pointer to the next node in the list. A simple object containing to class variables is all we need.
+
+```javascript
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.nextNode = null;
+    }
+}
+```
+
 ### Constructor
 Here we have our class declaration and constructor method. Nothing too fancy here. All we are doing is creating two class variables that we will use to keep track of our head node and tail node and defining some common errors. You wouldn't usually find a tail node reference in a singly linked list but I added it here as I like the benefit of being able to easily amend the last node in the list for a relatively small amount of memory usage.
 
