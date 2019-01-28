@@ -30,7 +30,7 @@ A linked list containing the same number of items as an equivalent array will al
 
 ## Implementation
 ### Nodes
-First we must create the nodes that will be contained inside of our linked lists. These are simple wrappers around the data we want to store that have a pointer to the next node in the list. A simple object containing to class variables is all we need.
+First we must create the nodes that will be contained inside of our linked lists. These are simple wrappers around the data we want to store that also have a pointer to the next node in the list. A simple object containing two class variables is all we need.
 
 ```javascript
 class Node {
