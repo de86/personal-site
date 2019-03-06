@@ -3,9 +3,8 @@ title: "Data Structures: Linked Lists"
 date: "2019-01-26T00:00:00.000Z"
 ---
 
-# Data Structures: Linked Lists
 ## What is a Linked List?
-A linked list is a data structure that holds data items, also known as nodes, in a linear sequence (One node points to the next node in the list). The nodes themselves, however, are not held sequentially in memory like an [array](https://www.dantony.uk/data-structures-arrays/). This is possible as each node contains it's data, a number, string or object for example, as well as a pointer to the next nodes location in memory. The last node simply contains a null pointer which signals we have reached the end of the list.
+A linked list is a data structure that holds data items, also known as nodes, in a linear sequence (One node points to the next node in the list). The nodes themselves, however, are not held sequentially in memory like an [array](https://www.dantony.uk/data-structures-arrays/). This is possible as each node contains its data, a number, string or object for example, as well as a pointer to the next nodes location in memory. The last node simply contains a null pointer which signals we have reached the end of the list.
 
 The linked list itself is simply a wrapper class that contains a reference to the head node (The first node in the list) as well as some methods that allow us to perform operations on the linked list, such as add and  remove nodes, retreive data. etc.
 
@@ -24,12 +23,24 @@ As linked lists nodes aren't held in contiguous memory it becomes very easy to a
 One of the downsides of a linked lists data not being held in contiguous memory is that we can't just jump straight to a value in memory like we can with an array. We must walk over each node, moving from one to the next until we get to the node that we need. This happens in O(n) time (I will be going into basic algorithms in the future) which basically means it takes longer to look over the entire list for every extra node we add. It will take longer to step over larger linked lists than smaller linked lists.
 
 ### Reverse Traversal
-Traversing backwards through a singly linked list (a linked list where each node only contains a reference to it's next node and not it's previous node) is difficult and could either take a very long time or use extra memory. Doubly linked lists make this trivial though.
+Traversing backwards through a singly linked list (a linked list where each node only contains a reference to its next node and not its previous node) is difficult and could either take a very long time or use extra memory. Doubly linked lists make this trivial though.
 
 ### Larger Memory Usage
-A linked list containing the same number of items as an equivalent array will always use more memory. This is because each node must contain a reference to the next node in the list as well as it's value.
+A linked list containing the same number of items as an equivalent array will always use more memory. This is because each node must contain a reference to the next node in the list as well as its value.
 
 ## Implementation
+### Nodes
+First we must create the nodes that will be contained inside of our linked lists. These are simple wrappers around the data we want to store that also have a pointer to the next node in the list. A simple object containing two class variables is all we need.
+
+```javascript
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.nextNode = null;
+    }
+}
+```
+
 ### Constructor
 This is our class declaration and constructor method. Nothing too fancy here. All we are doing is creating some class variables that we will use to keep track of our head node and tail node and defining some common errors. You wouldn't usually find a tail node reference in a singly linked list but I added it here as I like the benefit of being able to easily amend the last node in the list for a relatively small amount of memory usage. I also declared a count variable so we can easily keep track of the number of items in our list.
 
@@ -536,5 +547,4 @@ export class ListNode<ListNodeType> {
         this.nextNode = null;
     }
 }
-
 ```
