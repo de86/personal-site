@@ -1,5 +1,5 @@
 ---
-title: "Data Structures: Queues"
+title: "Data Structures: Stacks"
 date: "2019-03-20T20:00:00.000Z"
 ---
 
