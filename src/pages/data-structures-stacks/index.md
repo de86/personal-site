@@ -12,9 +12,9 @@ Stacks are useful in lots of areas of development. They can be used in algorithm
 ## Implementation
 A stack can be built with an [Array](https://www.dantony.uk/data-arrays/) or a [Linked List](https://www.dantony.uk/data-linked-lists/). In javascript an array is perfectly fine to use as the base of a stack as arrays in javascript can grow or shrink dynamically. In a language sucah as Java or C# though, a linked list may be used so the stack can grow or shrink as needed. If a stack is limited to a max size and we try to add a further value to it, it will throw a "stack overflow" error. A stack only has a couple of methods or operations.
 
-    - Add - Allows us to add to the top of the stack
-    - Pop - Removes and returns the value at the top of the stack
-    - Peek - Returns the value at the top of the stack without removing it
+- Add - Allows us to add to the top of the stack
+- Pop - Removes and returns the value at the top of the stack
+- Peek - Returns the value at the top of the stack without removing it
 
 Below is an example implementation of a stack in Typescript:
 
