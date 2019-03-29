@@ -33,8 +33,11 @@ A linked list containing the same number of items as an equivalent array will al
 First we must create the nodes that will be contained inside of our linked lists. These are simple wrappers around the data we want to store that also have a pointer to the next node in the list. A simple object containing two class variables is all we need.
 
 ```javascript
-class Node {
-    constructor(value) {
+export class ListNode<ListNodeType> {
+    value: ListNodeType;
+    nextNode: ListNode<ListNodeType>;
+
+    constructor(value: ListNodeType) {
         this.value = value;
         this.nextNode = null;
     }
@@ -42,36 +45,37 @@ class Node {
 ```
 
 ### Constructor
-This is our class declaration and constructor method. Nothing too fancy here. All we are doing is creating some class variables that we will use to keep track of our head node and tail node and defining some common errors. You wouldn't usually find a tail node reference in a singly linked list but I added it here as I like the benefit of being able to easily amend the last node in the list for a relatively small amount of memory usage. I also declared a count variable so we can easily keep track of the number of items in our list.
+This is our class declaration and constructor method. Nothing too fancy here. All we are doing is creating some class variables that we will use to keep track of our head node and tail node and defining some common errors. You wouldn't usually find a tail node reference in a singly linked list but I added it here as I like the benefit of being able to easily amend the last node in the list for a relatively small amount of memory usage. I also declared a size variable so we can easily keep track of the number of items in our list.
 
 ```typescript
-export class LinkedList<ListType> {
-    private head: ListNode<ListType>;
-    private tail: ListNode<ListType>;
+    export default class LinkedList<ListType> {
+        private head: ListNode<ListType>;
+        private tail: ListNode<ListType>;
 
-    private count: number;
+        private size: number;
 
-    private errIndexOutOfBounds: IListError;
-    private errEmptyList: IListError;
+        private errIndexOutOfBounds: IListError;
+        private errEmptyList: IListError;
 
-    constructor() {
-        this.head = null;
-        this.tail = null;
+        constructor() {
+            this.head = null;
+            this.tail = null;
 
-        this.count = 0;
+            this.size = 0;
 
-        this.errIndexOutOfBounds = {name: 'IndexOutOfBoundsError', message: 'Index is out of bounds'};
-        this.errEmptyList = {name: 'EmptyListError', message: 'Failed to perform operation on empty list'};
-    }
+            this.errIndexOutOfBounds = {name: 'IndexOutOfBoundsError', message: 'Index is out of bounds'};
+            this.errEmptyList = {name: 'EmptyListError', message: 'Failed to perform operation on empty list'};
+        }
 
     ...
+    }
 ```
 
-### Add Head Node
-Inserting a new value at the front of a linked list is very easy to do. We simply need to create a new node and have it point to our current head node. Then re-assign the head of our linked list to the new node. If our list happens to be empty then we simply create a new node and ensure that the head and tail of our linked list point to the node. We can also increment count.
+### Adding a Head Node
+Inserting a new value at the front of a linked list is very easy to do. We simply need to create a new node and have it point to our current head node. Then re-assign the head of our linked list to the new node. If our list happens to be empty then we simply create a new node and ensure that the head and tail of our linked list point to the node. We can also increment size.
 
 ```typescript
-public addNodeToHead(value: ListType): void {
+    public addToHead(value: ListType): void {
         const newHeadNode = new ListNode<ListType>(value);
         
         if (!this.head && !this.tail) {
@@ -82,33 +86,41 @@ public addNodeToHead(value: ListType): void {
             this.head = newHeadNode;
         }
 
-        this.count++;
+        this.size++;
     }
 ```
 
-### Remove Head Node
+### Removing a Head Node
 Likewise, removing the first item in the list is also simple. All we need to do is set the head of the linked list to the second node in the list. If the list is empty we can deal with that here. I'm doing so by simply throwing an error that can be caught higher up the call stack. If the linked list only contains one item we can simply set the head and tail of the linked list to null, essentially giving us an empty list.
 
 ```typescript
-public removeHeadNode(): void {
+    public removeHead(): ListType {
+        let removedNodeValue;
+
         if (!this.head && !this.tail) {
             throw this.errEmptyList;
         } else if (this.head && this.head.nextNode) {
+            removedNodeValue = this.head.value;
+
             this.head = this.head.nextNode;
-            this.count--;
+            this.size--;
         } else if (this.head == this.tail) {
+            removedNodeValue = this.head.value;
+
             this.head = null;
             this.tail = null;
-            this.count = 0;
+            this.size = 0;
         }
+
+        return removedNodeValue;
     }
 ```
 
-### Add Tail Node
+### Adding a Tail Node
 By keeping a reference to the tail of our linked list adding to the end of the list also becomes very easy and follows a similar pattern to adding and removing the head. All we need to do is create a new node, add a reference to our new node to our current tail node, then point the tail of our linked list to our new node. We need to do the same checks to make sure our list isn't empty or has only one item and del with those cases.
 
 ```typescript
-public addNodeToTail(value: ListType): void {
+    public addToTail(value: ListType): void {
         const newTailNode = new ListNode<ListType>(value);
 
         if (!this.head && !this.tail) {
@@ -120,24 +132,31 @@ public addNodeToTail(value: ListType): void {
         }
         
         this.tail = newTailNode;
-        this.count++;
+        this.size++;
     }
 ```
 
-### Remove Tail Node
+### Removing a Tail Node
 Despite having a reference to the tail removing the last node in the last is a bit more complex than the previous examples, though not too much though. This is because to remove the last node we need to know about the tail, but also the node previous to the tail node.
 
 We start by stepping over all of the nodes in our list and keeping a reference to the current node and the previous node. Once we hit a node whose nextNode pointer is null we know we have reached the end of our list. From here its a simple case of setting our next-to-last nodes nextNode pointer to null and setting the tail of our linked list to this next-to-last node.
 
 ```typescript
-public removeTailNode(): void {
+    public removeTail(): ListType {
+        let removedNodeValue;
+
         if (!this.head && !this.tail) {
             throw this.errEmptyList;
         } else if (this.head == this.tail) {
+            removedNodeValue = this.head.value;
+
             this.head = null;
             this.tail = null;
-            this.count = 0;
+            this.size = 0;
+
         } else {
+            removedNodeValue = this.head.value;
+
             let currentNode = this.head;
             let penultimateNode;
 
@@ -148,22 +167,24 @@ public removeTailNode(): void {
 
             penultimateNode.nextNode = null;
             this.tail = penultimateNode;
-            this.count--;
+            this.size--;
         }
+
+        return removedNodeValue;
     }
 ```
 
-### Insert At Index
+### Inserting At a specific Index
 We can still modify data in a linked list with an index just like we can with an array. In order to insert a node at a given index we need to walk over our linked list from the start until we reach our target node. Once there we can set the nextNode reference of the previous node to our new node,then set the nextNode reference of our new node to the current node. This has the effect of inserting the new node at the given index. We should do a check to ensure we have a valid index. i.e. a non negative number. We can also take a shortcut and re-use our addNodeToHead method if the given index is 0.
 
 ```typescript
-public insertNodeAtIndex(value: ListType, index: number): void {
+    public insertAtIndex(index: number, value: ListType): void {
         if (!this.head && !this.tail) {
             throw this.errEmptyList;
         } else if (index < 0) {
             throw this.errIndexOutOfBounds;
         } else if (index == 0) {
-            this.addNodeToHead(value);
+            this.addToHead(value);
         } else {
             let currentNode = this.head;
             let prevNode;
@@ -173,29 +194,29 @@ public insertNodeAtIndex(value: ListType, index: number): void {
                 if (!currentNode) {
                     throw this.errIndexOutOfBounds;
                 }
-    
+
                 prevNode = currentNode;
                 currentNode = currentNode.nextNode;
             }
-    
+
             prevNode.nextNode = newNode;
             newNode.nextNode = currentNode;
-            this.count++;
+            this.size++;
         }
     }
 ```
 
-### Remove At Index
+### Removing A Node From A Specific Index
 To remove a node at a given index we again need to walk over the nodes in our linked list until we reach our target node. We then simply set the previous nodes nextNode value to the given index nodes nextNode value and that's it. We have successfully removed our node.
 
 ```typescript
-public removeNodeAtIndex(index: number): void {
+    public removeAtIndex(index: number): ListType {
         if (!this.head && !this.tail) {
             throw this.errEmptyList;
         } else if (index < 0) {
             throw this.errIndexOutOfBounds;
         } else if (index == 0) {
-            this.removeHeadNode();
+            return this.removeHead();
         } else {
             let currentNode = this.head;
             let prevNode;
@@ -208,30 +229,40 @@ public removeNodeAtIndex(index: number): void {
                     throw this.errIndexOutOfBounds;
                 }
             }
-    
+
+            let removedNodeValue;
             if (!currentNode.nextNode) {
+                removedNodeValue = currentNode.value;
+
                 prevNode.nextNode = null;
                 this.tail = prevNode;
+
+                
             } else {
+                removedNodeValue = currentNode.nextNode.value;
+
+                removedNodeValue = prevNode.nextNode.value;
                 prevNode.nextNode = currentNode.nextNode;
             }
 
-            this.count--;
+            this.size--;
+
+            return removedNodeValue;
         }
     }
 ```
 
-### Get Node At Index
+### Getting Node From A Specific Index
 Accessing a node at a given index is very similar to our previous examples and very easy. All we need to do is walk over the nodes in our list until we reach the node at the given index and then simply return it. Easy. We also do our standard checks to make sure we have been given a valid index and that we have values in our list.
 
 ```typescript
-public getNodeByIndex(index: number): ListNode<ListType> {
+    public getByIndex(index: number): ListType {
         if (!this.head && !this.tail) {
             throw this.errEmptyList;
         } else if (index < 0) {
             throw this.errIndexOutOfBounds;
         } else if (index == 0) {
-            return this.head;
+            return this.head.value;
         } else {
             let currentNode = this.head;
             
@@ -242,26 +273,34 @@ public getNodeByIndex(index: number): ListNode<ListType> {
                     throw this.errIndexOutOfBounds;
                 }
             }
-    
-            return currentNode;
+
+            return currentNode.value;
         }
     }
 ```
 
-We also have some simple getters for the class variables we dont want to expose
+### Utlity Functions
+We also have some simple getters for the class variables we dont want to expose and a clear function to empty the list. Note: this implementation could lead to memory leaks as if there is more than one item in the list being cleared they would hold references to eachother and the garbage collection would not pick them up. I added this method simply for testing purposes.
+
 ```typescript
-    public getHeadNode(): ListNode<ListType> {
-        return this.head;
+    public getHead(): ListType {
+        return this.head ? this.head.value : null;
     }
 
 
-    public getTailNode(): ListNode<ListType> {
-        return this.tail;
+    public getTail(): ListType {
+        return this.tail ? this.tail.value : null;
     }
 
     
-    public getCount(): number {
-        return this.count;
+    public getSize(): number {
+        return this.size;
+    }
+
+    public clear(): void {
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
     }
 ```
 
@@ -294,11 +333,11 @@ interface IListError {
     message: String;
 }
 
-export class LinkedList<ListType> {
+export default class LinkedList<ListType> {
     private head: ListNode<ListType>;
     private tail: ListNode<ListType>;
 
-    private count: number;
+    private size: number;
 
     private errIndexOutOfBounds: IListError;
     private errEmptyList: IListError;
@@ -307,7 +346,7 @@ export class LinkedList<ListType> {
         this.head = null;
         this.tail = null;
 
-        this.count = 0;
+        this.size = 0;
 
         this.errIndexOutOfBounds = {name: 'IndexOutOfBoundsError', message: 'Index is out of bounds'};
         this.errEmptyList = {name: 'EmptyListError', message: 'Failed to perform operation on empty list'};
@@ -317,24 +356,24 @@ export class LinkedList<ListType> {
     /**
      * Get the node at the head of the Linked List.
      */
-    public getHeadNode(): ListNode<ListType> {
-        return this.head;
+    public getHead(): ListType {
+        return this.head ? this.head.value : null;
     }
 
 
     /**
      * Get the node at the tail of the Linked List.
      */
-    public getTailNode(): ListNode<ListType> {
-        return this.tail;
+    public getTail(): ListType {
+        return this.tail ? this.tail.value : null;
     }
 
     
     /**
      * Get the number of items in the Linked List.
      */
-    public getCount(): number {
-        return this.count;
+    public getSize(): number {
+        return this.size;
     }
 
 
@@ -343,7 +382,7 @@ export class LinkedList<ListType> {
      * 
      * @param value {ListType} The value and type to be stored.
      */
-    public addNodeToHead(value: ListType): void {
+    public addToHead(value: ListType): void {
         const newHeadNode = new ListNode<ListType>(value);
         
         if (!this.head && !this.tail) {
@@ -354,24 +393,32 @@ export class LinkedList<ListType> {
             this.head = newHeadNode;
         }
 
-        this.count++;
+        this.size++;
     }
 
 
     /**
      * Remove the head node from the Linked List.
      */
-    public removeHeadNode(): void {
+    public removeHead(): ListType {
+        let removedNodeValue;
+
         if (!this.head && !this.tail) {
             throw this.errEmptyList;
         } else if (this.head && this.head.nextNode) {
+            removedNodeValue = this.head.value;
+
             this.head = this.head.nextNode;
-            this.count--;
+            this.size--;
         } else if (this.head == this.tail) {
+            removedNodeValue = this.head.value;
+
             this.head = null;
             this.tail = null;
-            this.count = 0;
+            this.size = 0;
         }
+
+        return removedNodeValue;
     }
 
 
@@ -380,7 +427,7 @@ export class LinkedList<ListType> {
      * 
      * @param value {ListType} The value and type to be stored.
      */
-    public addNodeToTail(value: ListType): void {
+    public addToTail(value: ListType): void {
         const newTailNode = new ListNode<ListType>(value);
 
         if (!this.head && !this.tail) {
@@ -392,7 +439,7 @@ export class LinkedList<ListType> {
         }
         
         this.tail = newTailNode;
-        this.count++;
+        this.size++;
     }
 
 
@@ -401,14 +448,21 @@ export class LinkedList<ListType> {
      * 
      * @param value {ListType} Add a new value of the given type to the head of the Linked List.
      */
-    public removeTailNode(): void {
+    public removeTail(): ListType {
+        let removedNodeValue;
+
         if (!this.head && !this.tail) {
             throw this.errEmptyList;
         } else if (this.head == this.tail) {
+            removedNodeValue = this.head.value;
+
             this.head = null;
             this.tail = null;
-            this.count = 0;
+            this.size = 0;
+
         } else {
+            removedNodeValue = this.head.value;
+
             let currentNode = this.head;
             let penultimateNode;
 
@@ -419,8 +473,10 @@ export class LinkedList<ListType> {
 
             penultimateNode.nextNode = null;
             this.tail = penultimateNode;
-            this.count--;
+            this.size--;
         }
+
+        return removedNodeValue;
     }
 
 
@@ -430,13 +486,13 @@ export class LinkedList<ListType> {
      * @param value {ListType} The value and type to be stored.
      * @param index {number} The index to store the given value at.
      */
-    public insertNodeAtIndex(value: ListType, index: number): void {
+    public insertAtIndex(index: number, value: ListType): void {
         if (!this.head && !this.tail) {
             throw this.errEmptyList;
         } else if (index < 0) {
             throw this.errIndexOutOfBounds;
         } else if (index == 0) {
-            this.addNodeToHead(value);
+            this.addToHead(value);
         } else {
             let currentNode = this.head;
             let prevNode;
@@ -453,7 +509,7 @@ export class LinkedList<ListType> {
     
             prevNode.nextNode = newNode;
             newNode.nextNode = currentNode;
-            this.count++;
+            this.size++;
         }
     }
 
@@ -463,13 +519,13 @@ export class LinkedList<ListType> {
      * 
      * @param index {number} The index of the node remove.
      */
-    public removeNodeAtIndex(index: number): void {
+    public removeAtIndex(index: number): ListType {
         if (!this.head && !this.tail) {
             throw this.errEmptyList;
         } else if (index < 0) {
             throw this.errIndexOutOfBounds;
         } else if (index == 0) {
-            this.removeHeadNode();
+            return this.removeHead();
         } else {
             let currentNode = this.head;
             let prevNode;
@@ -483,29 +539,40 @@ export class LinkedList<ListType> {
                 }
             }
     
+            let removedNodeValue;
             if (!currentNode.nextNode) {
+                removedNodeValue = currentNode.value;
+
                 prevNode.nextNode = null;
                 this.tail = prevNode;
+
+                
             } else {
+                removedNodeValue = currentNode.nextNode.value;
+
+                removedNodeValue = prevNode.nextNode.value;
                 prevNode.nextNode = currentNode.nextNode;
             }
 
-            this.count--;
+            this.size--;
+
+            return removedNodeValue;
         }
     }
+
 
     /**
      * Get the node stored at the given index.
      * 
      * @param index {number} The index of the node to retrieve.
      */
-    public getNodeByIndex(index: number): ListNode<ListType> {
+    public getByIndex(index: number): ListType {
         if (!this.head && !this.tail) {
             throw this.errEmptyList;
         } else if (index < 0) {
             throw this.errIndexOutOfBounds;
         } else if (index == 0) {
-            return this.head;
+            return this.head.value;
         } else {
             let currentNode = this.head;
             
@@ -517,8 +584,18 @@ export class LinkedList<ListType> {
                 }
             }
     
-            return currentNode;
+            return currentNode.value;
         }
+    }
+
+
+    /**
+     * Remove all items from the list
+     */
+    public clear(): void {
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
     }
 
     /**
@@ -547,4 +624,5 @@ export class ListNode<ListNodeType> {
         this.nextNode = null;
     }
 }
+
 ```
