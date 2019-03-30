@@ -5,7 +5,9 @@ date: "2019-03-20T20:00:00.000Z"
 
 # Data Structures: Stacks
 ## What is a Stack?
-A stack is a LIFO or "last in, first out" data structure. A stack can be thought of as a literal stack of boxes. We can only add a new box (our data) to the top of the pile (our stack) and remove a box from the top of the pile. A stack is a linear data structure where each Item in the stack only has a reference to the next item in the stack. A stack must be traversed in the order that data has been pushed to it.
+A stack is a LIFO or "last in, first out" data structure that allows us to store and retreive our data in a specific order. A stack is much like a literal stack of boxes. We can only add a new box (our data) to the top of the pile (our stack) and remove a box from the top of the pile. A stack is a linear data structure where each item in the stack only has a reference to the next item in the stack. A stack must be traversed in the order that data has been pushed to it.
+
+![Example of pushing to and popping from a stack](./stack-data-structure.png)
 
 Stacks are useful in lots of areas of development. They can be used in algorithms such as quicksorting, parsing strings to find values, converting a decimal number into binary and many other applications. Probably the most well known stack is the "call stack". This is used to maintain the order in which functions were called. Call stacks can be an invaluable tool when debugging as they show us the order of function calls and lead us to the point at which an error originated.
 
@@ -30,35 +32,21 @@ export class Stack<StackType> {
     }
 
 
-    /**
-     * Add a value to the top of the Stack.
-     * 
-     * @param value {ListType} The value to be added to the stack.
-     */
     public push(value: StackType): void {
         this.list.addToHead(value);
     }
 
 
-    /**
-     * Remove the value at the top of the stack.
-     */
     public pop(): StackType {
         return this.list.removeHead();
     }
 
 
-    /**
-     * Returns the value at the front of the Queue without removing it.
-     */
     public peek(): StackType {
         return this.list.getTail();
     }
 
 
-    /**
-     * Get the number of items in the Queue.
-     */
     public getSize(): number {
         return this.list.getSize();
     }
