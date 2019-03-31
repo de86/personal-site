@@ -3,7 +3,6 @@ title: "Data Structures: Queues"
 date: "2019-03-06T20:00:00.000Z"
 ---
 
-# Data Structures: Queues
 ## What is a Queue?
 A queue is a data structure we can use when we want to store data and then later perform an operation or function on that data in the same order in which we stored it. It is a "First In First Out" data structure meaning that all items placed into the queue ahead of the current item must be removed before the current item can be removed. It's exactly like queuing up in the shops. Everyone in the queue is served in order and everyone who joined the queue before us must be served before we ourselves can be served.
 

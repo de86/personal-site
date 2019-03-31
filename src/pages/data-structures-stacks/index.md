@@ -3,7 +3,6 @@ title: "Data Structures: Stacks"
 date: "2019-03-20T20:00:00.000Z"
 ---
 
-# Data Structures: Stacks
 ## What is a Stack?
 A stack is a LIFO or "last in, first out" data structure that allows us to store and retreive our data in a specific order. A stack is much like a literal stack of boxes. We can only add a new box (our data) to the top of the pile (our stack) and remove a box from the top of the pile. A stack is a linear data structure where each item in the stack only has a reference to the next item in the stack. A stack must be traversed in the order that data has been pushed to it.
 
