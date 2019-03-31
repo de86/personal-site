@@ -18,7 +18,7 @@ As you can see, it's no surprise that codebases slowly (quite quickly) become le
 
 While a certain level of code rot is inevitable, if we are aware of it we can do our best to stay on top of it. Whenever we are working on new functionality, bug fixes or cleaning up tech debt if we leave the codebase better than we found it we can dramatically slow down code rot and in a perfect world actually improve the quality of the code base over time.
 
-> if we leave the codebase better than we found it we could dramatically slow down code rot
+> if we leave the codebase better than we found it we can dramatically slow down code rot
 
 We can rename badly named variables, functions and methods, split larger functions out in to smaller functions that are easier to read and test and also make our codebase more imperative and functional. We can replace deprecated methods so updating frameworks, libraries and the language itself  becomes much easier and we can implement any new design patterns when we come across code using an old pattern that is no longer used.
 
