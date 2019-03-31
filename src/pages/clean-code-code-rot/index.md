@@ -3,8 +3,6 @@ title: "Clean Code: Preventing Code Rot"
 date: "2019-03-31T16:00:00.000Z"
 ---
 
-# Clean Code: Preventing Code Rot
-
 ## tldr;
 Leave the codebase better than you found it. Improve existing code, however minor, when appropriate to prevent our codebase going stale.
 
