@@ -1,6 +1,6 @@
 ---
 title: "Clean Code: Preventing Code Rot"
-date: "2019-31-20T16:00:00.000Z"
+date: "2019-03-31T16:00:00.000Z"
 ---
 
 # Clean Code: Preventing Code Rot
