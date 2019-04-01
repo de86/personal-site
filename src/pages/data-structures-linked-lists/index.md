@@ -305,7 +305,7 @@ We also have some simple getters for the class variables we dont want to expose 
 ```
 
 
-And that's it. A basic implementation of a linked list. You can see the full source code below or on [github](https://github.com/de86/datastructures/blob/master/LinkedList.js)
+And that's it. A basic implementation of a linked list. You can see the full source code below or on [Github](https://github.com/de86/datastructures/blob/master/src/LinkedList.ts)
 
 ## Types Of Linked Lists
 There a few different types of linked lists I will briefly mention. 
@@ -325,7 +325,7 @@ Linked lists are great if you don't know how large you need your collection of d
 It may not be the best choice if you need to do lots of searching for values as walking over the list takes O(n) time meaning it will take longer and longer as the list increases in size.
 
 ## Source Code
-Below is the typescript linked list class definition I have used in this post. You can also get the full source from Github [here](https://github.com/de86/datastructures/blob/master/LinkedList.js).
+Below is the typescript linked list class definition I have used in this post. You can also get the full source from Github [here](https://github.com/de86/datastructures/blob/master/src/LinkedList.ts).
 
 ```typescript
 interface IListError {
