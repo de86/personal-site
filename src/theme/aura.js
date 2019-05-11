@@ -1,6 +1,6 @@
 import gray from 'gray-percentage';
 import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants';
-// 6c55e7
+
 export default {
   title: 'Alton',
   baseFontSize: '18px',
@@ -28,6 +28,9 @@ export default {
     },
     h2: {
         marginTop: '55px'
+    },
+    p: {
+      lineHeight: '1.7em'
     },
     a: {
       color: '#9052c6',
