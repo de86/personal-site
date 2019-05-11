@@ -11,7 +11,7 @@ Naming things is hard. Reading poorly named code is harder. Use names that have 
 
 One of the hardest things in programming to do well is naming things. Variables, Functions, Classes etc all need to be named. A good name will concisely describe what something is or does and even how it should be used. When reading code meaningful names can be the difference between immediately understanding what code does or taking 5 minutes to understand a snippet of code before proceeding. With good names your code can read more like a story, or at least a human readable step by step to what is happening.
 
-## Use Intention-Revealing Names
+## Use Intention Revealing Names
 
 A name should reveal everything you need to know about a variable, function or class. A variable name should immediately tell you what it represents, a function name should tell you exactly what that function does and a class name should tell you what that class is trying to model. Always avoid single letter variable names as they provide no meaning whatsoever. Any name that requires a comment to explain it should not be used and should be reconsidered.
 
@@ -37,7 +37,7 @@ To better demonstrate the difference between good and bad names take a look at t
 function flaggedC (g) { 
     const cArray = [];
 
-    g.forEach(c  => {
+    g.forEach(c => {
         if (c.status === 'FLAG') {
             cArray.push(c);
         }
@@ -63,7 +63,7 @@ function getFlaggedCellsFromGameboard(gameboard: ICell[]): ICell[] {
 }
 ```
 
-You can immediately see the difference above. Using a combination of meaningful names and declaring our types all of our previous questions are immediately answered. This functions intention becomes clear as does each variable used inside of it. Even without using typescript this code would be perfectly readable and understandable without having to know the context. This code snippet now reads much more like a set of step-by-step instructions than poorly written code.
+None of the logic has changed atll but you can immediately see the difference. Using a combination of meaningful names and declaring our types all of our previous questions are immediately answered. This functions intention becomes clear as does each variable used inside of it. Even without using typescript this code would be perfectly readable and understandable without having to know the context. This code snippet now reads much more like a set of step-by-step instructions than poorly written code.
 
 ## Avoid Disinformation
 
@@ -85,13 +85,13 @@ or simply, and perhaps the best choice
 
 ## Make Meaningful Distinctions
 
-Avoid using minor name changes with no differences in their meaning. Simply adding on an “x” or an underscore to differentiate between to things causes confusion as it does not tell the developer reading the code what the difference is. If we have two functions, one named getAccount() and one named getAccountInfo(), what does one return that the other doesn’t? If i’m getting an instance of an account i would expect that to have all of the information belonging to that account. Those names, although different, provide no meaningful differentiation to us as developers.
+Avoid using minor name changes with no differences in their meaning. Simply adding on an “x” or an underscore to differentiate between two things causes confusion as it does not tell the developer reading the code what the difference is. If we have two functions, one named getAccount() and one named getAccountInfo(), what does one return that the other doesn’t? If i’m getting an instance of an account i would expect that to have all of the information belonging to that account. Those names, although different, provide no meaningful distinctions to us as developers.
 
 Another example would be:
 
 ```typescript
 function activateAccount(account: IAccount): IAccount {
-    const accountA = account;
+    const accountA = {...account};
     const accountA.isActive = true;
 
     return accountA;
@@ -109,31 +109,32 @@ function activateAccount(account: IAccount): IAccount {
 }
 ```
 
-Although this is something of a contrived example (though you may want to do something like this if using redux or dont want any side-effects from your function) You can immediately see what the intention of that variable is.
+Although this is something of a contrived example (though you may want to do something like this if you are using redux or don't want any side-effects from your function) You can immediately see what the intention of that variable is.
 
 ## Use Search Friendly Names
 
-As mentioned earlier we should not use single letter variable names. As well as providing no meaning they are also impossible to search for using your IDE’s search function and when just scanning over the code yourself.
+As mentioned earlier we should not use single letter variable names. As well as providing no meaning they are also impossible to search for using your IDE’s search function. They even difficult to pick out when simply scanning over code.
 
-A name like MAX_GAMES_TO_DISPLAY is much easier to search for and read than “m” or “g” or even a magic number like 20.
+A name like MAX\_GAMES\_TO\_DISPLAY is much easier to search for and read than “m” or “g” or even a magic number like 20.
 
 ## Avoid Mental Mapping
 
 Developers should never have to create a mental map of what variable is what. especially if a variable represents something that already has a name in the codebase. Using “g” when “games” is used everywhere else requires the reader to remember what g is. They may also question wether “g” actually is a game or not. This is another problem that comes along with single letter variable names. 
 
-“The proffesional understands that clarity is king… and write code that others can understand”
+> “The proffesional understands that clarity is king… and write code that others can understand”
+> -- <cite>Robert C. Martin - Clean Code</cite>
 
 ## Class Names
 
-Classes, Objects should have noun or noun-phrases as names. Words like Account, Game, Customer accurately describe what the class or object is representing. Avoid using words like Data or Info in these names as these provid no extra meaning. What does GameData provide me that Game doesn’t already?
+Classes and objects should have noun or noun-phrases as names. Words like Account, Game, Customer accurately describe what the class or object is representing. Avoid using words like Data or Info in these names as these provide no extra meaning. What does GameData provide me that Game doesn’t already?
 
 ## Function and Method Names
 
-Functions and Methods should have verbs and verb-phrases as names. Names like getAccount, removeDisabledAccounts, groupAccountsByStatus, sortAccountsByBalance are clear and concise. You can clearly tell what a function does without needing to double check the code itself. Words like get, set, delete, add, group, sort etc are great prefixes to use for function names.
+Functions and Methods should have verbs and verb-phrases as names. Names like getAccount, removeDisabledAccounts, groupAccountsByStatus, sortAccountsByBalance are clear and concise. You can clearly tell what a function does without needing to double check the code itself. Words like get, set, delete, add, group, sort etc. are great prefixes to use for function names.
 
 ## Variable Names
 
-Variables, like Classes, shoulde use noun or noun-phrases as names to clearly denote what a variable is.  Booleans should always begin with words like is, should, can so users can see instantly that it contains a boolean. Using these words also makes reading code more like reading english, especially when using if statements.
+Variables, like classes, should use noun or noun-phrases as names to clearly denote what a variable is.  Booleans should always begin with words like is, should, can so users can see instantly that it contains a boolean. Using these words also makes reading code more like reading english, especially when using if statements.
 
 ```typescript
 if (user.isLoggedIn) {
@@ -141,7 +142,7 @@ if (user.isLoggedIn) {
 }
 ```
 
-Reads much nicer than
+The above reads much nicer than:
 
 ```typescript
 if (user.status === ‘LOGGED_IN’) {
