@@ -9,7 +9,7 @@ Naming things is hard. Reading poorly named code is harder. Use names that have 
 
 ## Meaningful Names
 
-One of the hardest things in programming to do well is naming things. Variables, Functions, Classes etc all need to be named. A good name will concisely describe what something is or does and even how it should be used. When reading code meaningful names can be the difference between immediately understanding what code does or taking 5 minutes to understand a snippet of code before proceeding. With good names your code can read more like a story, or at least a human readable step by step to what is happening.
+One of the hardest things in programming to do well is naming things. Variables, Functions, Classes etc all need to be named. A good name will concisely describe what something is or does and even how it should be used. When reading code meaningful names can be the difference between immediately understanding what code does or taking 5 minutes to understand a snippet of code before proceeding. With good names your code can read more like a human readable step by step guide to what is happening.
 
 ## Use Intention Revealing Names
 
@@ -63,15 +63,15 @@ function getFlaggedCellsFromGameboard(gameboard: ICell[]): ICell[] {
 }
 ```
 
-None of the logic has changed atll but you can immediately see the difference. Using a combination of meaningful names and declaring our types all of our previous questions are immediately answered. This functions intention becomes clear as does each variable used inside of it. Even without using typescript this code would be perfectly readable and understandable without having to know the context. This code snippet now reads much more like a set of step-by-step instructions than poorly written code.
+None of the logic has changed at all but you can immediately see the difference. Using a combination of meaningful names and declaring our types all of our previous questions are immediately answered. This functions intention becomes clear as does each variable used inside of it. Even without using typescript this code would be perfectly readable and understandable without having to know the context. This code snippet now reads much more like a set of step-by-step instructions than poorly written code.
 
 ## Avoid Disinformation
 
-Disinformation in variable names can be very misleading and cause developers reading the code to not fully understand what is going on. Worse, it can lead them down a wrong path if they do not look closely enought at the code.
+Disinformation in variable names can be very misleading and cause developers reading the code to not fully understand what is going on. Worse, it can lead them down a wrong path if they do not look closely enough at the code.
 
-We should avoid using words that already have meaning to us as (Javascript) developers such as number, string, array, class etc. as this can cause confusion. 
+We should avoid using words that already have meaning to us as developers such as number (Javascript), string, array, class etc. as this can cause confusion. 
 
-For example, lets say we have an object that has a property named “idNumber” that is actually of type string. This has the potential to cause a silent error that is difficult to debug if the developer modifying this code assumes that idNumber is a number and treats it as so.
+For example, lets say we have an object that has a property named “idNumber” that is actually of type string. If the developer modifying this code assumes that idNumber is a number and treats it as so this has the potential to cause a logical error and break silently creating a bug that may be difficult to debug.
 
 Adding the type to a variable name can also contribute to a codebase that ages poorly. If we have a variable named “gamesArray“ we would assume that this is an array that holds instances of games. The problem arises if later on that array of games gets changed to an object. Perhaps now we want to store each game by it’s id so they can be easily accessed that way. If the developer modifying the code doesn’t change all instances of gamesArray to gamesObject we will again potentially see errors in code or cause confusion to future developers that read this code. Some better alternatives would be:
 
@@ -113,16 +113,16 @@ Although this is something of a contrived example (though you may want to do som
 
 ## Use Search Friendly Names
 
-As mentioned earlier we should not use single letter variable names. As well as providing no meaning they are also impossible to search for using your IDE’s search function. They even difficult to pick out when simply scanning over code.
+As mentioned earlier we should not use single letter variable names. As well as providing no meaning they are also impossible to find for using your IDE’s search function. They are even difficult to pick out when simply scanning over code.
 
 A name like MAX\_GAMES\_TO\_DISPLAY is much easier to search for and read than “m” or “g” or even a magic number like 20.
 
 ## Avoid Mental Mapping
 
-Developers should never have to create a mental map of what variable is what. especially if a variable represents something that already has a name in the codebase. Using “g” when “games” is used everywhere else requires the reader to remember what g is. They may also question wether “g” actually is a game or not. This is another problem that comes along with single letter variable names. 
+Developers should never have to create a mental map of what variable is what. especially if a variable represents something that already has a name in the codebase. Using “g” when “games” is used everywhere else requires the reader to remember what "g" is. They may also question whether “g” actually is a game or not. This is another problem that comes along with single letter variable names.
 
 > “The proffesional understands that clarity is king… and write code that others can understand”
-> -- <cite>Robert C. Martin - Clean Code</cite>
+> - <cite>Robert C. Martin - Clean Code</cite>
 
 ## Class Names
 
@@ -130,11 +130,11 @@ Classes and objects should have noun or noun-phrases as names. Words like Accoun
 
 ## Function and Method Names
 
-Functions and Methods should have verbs and verb-phrases as names. Names like getAccount, removeDisabledAccounts, groupAccountsByStatus, sortAccountsByBalance are clear and concise. You can clearly tell what a function does without needing to double check the code itself. Words like get, set, delete, add, group, sort etc. are great prefixes to use for function names.
+Functions and Methods should have verbs and verb-phrases as names as functions are used to perform an action. Names like getAccount, removeDisabledAccounts, groupAccountsByStatus, sortAccountsByBalance are clear and concise. You can clearly tell what a function does without needing to double check the code itself. Words like get, set, delete, add, group, sort etc. are great prefixes to use for function names.
 
 ## Variable Names
 
-Variables, like classes, should use noun or noun-phrases as names to clearly denote what a variable is.  Booleans should always begin with words like is, should, can so users can see instantly that it contains a boolean. Using these words also makes reading code more like reading english, especially when using if statements.
+Variables, like classes, should use noun or noun-phrases as names to clearly denote what a variable is.  Booleans should always begin with words like is, should or can etc. so users can see instantly that it contains a boolean. Using these words also makes reading code more like reading english, especially when using if statements.
 
 ```typescript
 if (user.isLoggedIn) {
