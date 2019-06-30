@@ -1,6 +1,7 @@
 ---
 title: "Data Structures: Linked Lists"
 date: "2019-01-26T00:00:00.000Z"
+topic: "dev"
 ---
 
 ## What is a Linked List?

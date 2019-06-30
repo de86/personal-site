@@ -1,6 +1,7 @@
 ---
 title: "Data Structures: Arrays"
 date: "2019-01-12T21:00:00.000Z"
+topic: "dev"
 ---
 
 ## Before We Start

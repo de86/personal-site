@@ -1,4 +1,3 @@
-import gray from 'gray-percentage';
 import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants';
 
 export default {
@@ -23,8 +22,14 @@ export default {
   bodyWeight: 400,
   boldWeight: 700,
   overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
-    'h1,h2,h3,h4,h5,h6': {
-      color: '#38a2dc',
+    '[data-theme="game-dev"] h1, [data-theme="game-dev"] h2, [data-theme="game-dev"] h3, [data-theme="game-dev"] h4, [data-theme="game-dev"] h5': {
+      color: '#fb50b0',
+    },
+    '[data-theme="dev"] h1, [data-theme="dev"] h2, [data-theme="dev"] h3, [data-theme="dev"] h4, [data-theme="dev"] h5': {
+        color: '#38a2dc',
+    },
+    '[data-theme="other"] h1, [data-theme="other"] h2, [data-theme="other"] h3, [data-theme="other"] h4, [data-theme="other"] h5': {
+        color: '#30dc59',
     },
     h2: {
         marginTop: '55px'
@@ -36,9 +41,17 @@ export default {
       color: '#9052c6',
       textDecoration: 'none',
     },
-    'a:hover,a:active': {
+    'a:hover, a:active': {
       color: '#a426e0',
       textDecoration: 'underline',
+    },
+    '[data-theme="game-dev"] a': {
+        color: '#fb5079',
+        textDecoration: 'none',
+    },
+    '[data-theme="game-dev"] a:hover, [data-theme="game-dev"] a:active, [data-theme="game-dev"] a:visited': {
+        color: '#fb5079',
+        textDecoration: 'underline',
     },
     blockquote: {
       ...scale(1 / 5),
@@ -59,6 +72,21 @@ export default {
     },
     'blockquote cite:before': {
       content: '"— "',
+    },
+    '[data-theme="dev"] blockquote': {
+        backgroundColor: '#f2f2f2',
+        color: '#38a2dc',
+        borderLeft: `${rhythm(3 / 16)} solid #38a2dc`,
+    },
+    '[data-theme="game-dev"] blockquote': {
+        backgroundColor: '#f9f4f0',
+        color: '#fb50b0',
+        borderLeft: `${rhythm(3 / 16)} solid #fb50b0`,
+    },
+    '[data-theme="other"] blockquote': {
+        backgroundColor: '#d5ecdb',
+        color: '#30dc59',
+        borderLeft: `${rhythm(3 / 16)} solid #30dc59`,
     },
     pre: {
         backgroundColor: '#f0f6f8',

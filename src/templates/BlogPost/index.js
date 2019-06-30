@@ -12,11 +12,12 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
+    const { topic } = this.props.data.markdownRemark.frontmatter;
     const siteDescription = post.excerpt;
     const { previous, next } = this.props.pageContext;
 
     return (
-      <BlogPostLayout location={this.props.location}>
+      <BlogPostLayout location={this.props.location} theme={topic}>
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}
@@ -70,6 +71,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        topic
       }
     }
   }

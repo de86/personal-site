@@ -1,6 +1,7 @@
 ---
 title: "Clean Code: Preventing Code Rot"
 date: "2019-03-31T16:00:00.000Z"
+topic: "dev"
 ---
 
 ## tldr;

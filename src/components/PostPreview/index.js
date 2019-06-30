@@ -3,9 +3,9 @@ import { Link } from 'gatsby';
 
 import styles from './styles.module.css';
 
-const PostPreview = ({slug, title, excerpt, date}) => {
+const PostPreview = ({slug, title, excerpt, date, theme}) => {
   return (
-    <div className={styles.row}>
+    <div className={styles.row} data-theme={theme}>
         <div className={styles.container}>
           <h3 className={styles.title}>
             <Link className={styles.titleLink} to={slug}>

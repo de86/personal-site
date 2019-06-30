@@ -1,6 +1,7 @@
 ---
 title: The Rules of Smooker are Thus
-date: "2019-01-01T20:06:33.311Z"
+date: "2019-01-01T20:06:33.0Z"
+topic: "other"
 ---
 
 ## Purpose

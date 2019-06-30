@@ -29,3 +29,27 @@
 .excerptText {
     margin: 12px 0 0;
 }
+
+.row[data-theme="dev"]:hover {
+    background-color: #f0f4ff;
+}
+
+.row[data-theme="game-dev"]:hover {
+    background-color: #fff1e9;
+}
+
+.row[data-theme="other"]:hover{
+    background-color: #ebffed;
+}
+
+.row[data-theme="dev"] .titleLink {
+    color: #38a2dc;
+}
+
+.row[data-theme="game-dev"] .titleLink {
+    color: #fb50b0;
+}
+
+.row[data-theme="other"] .titleLink {
+    color: #30dc59;
+}

@@ -1,6 +1,7 @@
 ---
 title: "Data Structures: Queues"
 date: "2019-03-06T20:00:00.000Z"
+topic: "dev"
 ---
 
 ## What is a Queue?

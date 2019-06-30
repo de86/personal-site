@@ -1,6 +1,7 @@
 ---
 title: Dipping my toes into painting again
 date: "2018-12-26T12:16:59.758Z"
+topic: "other"
 ---
 
 When I was young and in school I used to love to draw and paint. Along with football and playing on my SNES (Way better than the Mega-Drive by the way) it was on of the main things I would do with my time. I would copy pictures of characters from the games I loved to play, make up my own characters and draw landscapes, pictures of the houses on my street. I once drew the back of my neighbours work van just because he had some sort of rack attached to the back of it and it looked complex.

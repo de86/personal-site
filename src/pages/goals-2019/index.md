@@ -1,6 +1,7 @@
 ---
 title: My Goals for 2019
 date: "2019-01-03T19:45:06.756Z"
+topic: "other"
 ---
 
 In a vain attempt to motivate myself to be a productive member of society I have decided to set myself some goals for 2019 (Super original, I know). What I'm hoping to get out of this is a tangible collection of... stuff that I can look back upon at the end of year and feel like I created something, feel like I contributed to the world and didn't just consume chocolate and Chinese food while watching YouTube in my underpants.

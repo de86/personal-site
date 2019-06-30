@@ -1,0 +1,33 @@
+.heroContainer {
+    position: relative;
+    height: 150px;
+    padding: 25px;
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    width: 136px;
+    height: 100px;
+    transition-duration: 0.3s;
+}
+
+@media only screen and (min-width: 720px) {
+    .heroContainer {
+        height: 250px;
+        padding: 35px;
+    }
+
+    .logo {
+        width: 200px;
+        height: 150px;
+    }
+}
+
+.logo:hover {
+    width: 250px;
+    height: 190px;
+}

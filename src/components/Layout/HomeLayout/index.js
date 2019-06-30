@@ -1,21 +1,35 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import styles from './styles.module.css';
-import logogradient from '../../../assets/logogradient.svg';
+import Themes from '../../../enums/themes';
 
-class Template extends React.Component {
+import Navigation from '../../Navigation';
+import Hero from '../../Hero';
+
+
+const themes = [Themes.Dev, Themes.GameDev, Themes.Other]
+
+function getTheme(pathname) {
+    const topic = pathname.replace('/', '');
+
+    if (themes.find(theme => theme === topic )) {
+        return topic
+    } else {
+        return themes[Math.floor(Math.random() * themes.length)]
+    }
+}
+
+
+class HomeLayout extends React.Component {
   render() {
-    const { location, children } = this.props;
-    const rootPath = `${__PATH_PREFIX__}/`;
+    const theme = getTheme(this.props.location.pathname);
 
     return (
-      <div className={styles.wrapper}>
-        <div className={styles.gradientFill} />
-        <div className={styles.heroContainer}>
-          <img src={logogradient} alt="Dave Elliott's Blog" className={styles.logo} />
-        </div>
-        {children}
+      <div className={styles.wrapper} data-theme={theme}>
+        <div className={styles.gradientFill}/>
+        <Hero theme={theme}/>
+        <Navigation />
+        {this.props.children}
         <div className={styles.footer}>
             &copy; David Antony Elliott 2019
         </div>
@@ -24,4 +38,4 @@ class Template extends React.Component {
   }
 }
 
-export default Template;
+export default HomeLayout;

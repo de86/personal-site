@@ -37,3 +37,18 @@
     align-items: center;
     font-size: 16px;
 }
+
+[data-theme='game-dev'] .navContainer,
+[data-theme='game-dev'] .footer {
+    background-image: linear-gradient(20deg, #f4b102, #fb50b0);
+}
+
+[data-theme='dev'] .navContainer,
+[data-theme='dev'] .footer {
+    background-image: linear-gradient(20deg, #02f4d0, #8f02f4);
+}
+
+[data-theme='other'] .navContainer,
+[data-theme='other'] .footer {
+    background-image: linear-gradient(20deg, #d2f402, #02f4ad);
+}

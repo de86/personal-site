@@ -1,0 +1,23 @@
+.navWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.navWrapper > a {
+    margin-right: 30px;
+    font-family: Domine, sans-serif;
+    font-size: 20px;
+}
+
+[data-theme='dev'] .navWrapper > a {
+    color: #38a2dc;
+}
+
+[data-theme='game-dev'] .navWrapper > a {
+    color: #fb50b0;
+}
+
+[data-theme='other'] .navWrapper > a {
+    color: #30dc59;
+}
