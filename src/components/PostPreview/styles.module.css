@@ -26,6 +26,12 @@
     color: #38a2dc;
 }
 
+.topic {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
 .excerptText {
     margin: 12px 0 0;
 }
@@ -42,14 +48,17 @@
     background-color: #ebffed;
 }
 
-.row[data-theme="dev"] .titleLink {
+.row[data-theme="dev"] .titleLink,
+.row[data-theme="dev"] .topic {
     color: #38a2dc;
 }
 
-.row[data-theme="game-dev"] .titleLink {
+.row[data-theme="game-dev"] .titleLink,
+.row[data-theme="game-dev"] .topic {
     color: #fb50b0;
 }
 
-.row[data-theme="other"] .titleLink {
+.row[data-theme="other"] .titleLink,
+.row[data-theme="other"] .topic {
     color: #30dc59;
 }
