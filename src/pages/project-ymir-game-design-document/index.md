@@ -4,14 +4,6 @@ date: "2019-06-30T14:00:00.000Z"
 topic: "game-dev"
 ---
 
-# Project Ymir Game Design Document
-
-## Revision History
-
-| Date | Description |
-|--|--|
-| 30/06/19 | Document Creation: Initial Draft |
-
 ## Introduction
 
 Project Ymir is a first-person fantasy adventure game set in a procedurally generated world of Gunnungap (Working name). The player can explore the world and it's dungeons, find loot, take on quests, hunts and bounties and craft weapons, armor and items from the things he collects in the world.
