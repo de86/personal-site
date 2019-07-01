@@ -6,7 +6,7 @@ topic: "game-dev"
 
 ## tldr;
 
-I'm making a procedurally-generated open-world first-person adventure game with dungeon running and looting mechanics. It's far too complex with too large a scope for one person to make. Gonna give it a go anyways. [View the WIP Game Design Doc here]().
+I'm making a procedurally-generated open-world first-person adventure game with dungeon running and looting mechanics. It's far too complex with too large a scope for one person to make. Gonna give it a go anyways. [View the WIP Game Design Doc here](https://www.dantony.uk/project-ymir-game-design-document/).
 
 ## Background
 
@@ -42,6 +42,6 @@ I plan on posting updates and screenshots there. I will try to post a regular up
 
 ## One last thing, why Ymir?
 
-Ymir is part of the Norse creation mythology, He was born in the abyss known as Gunnungagap and gave birth to the other giants and gods. His body was used to create the world as we know it. Ymir is the personification of the chaos before creation and can be used as a way of talking about unrealised potential. All in all he seems to perfectly summ up for this project me.
+Ymir is part of the Norse creation mythology, He was born in the abyss known as Gunnungagap and gave birth to the other giants and gods. His body was used to create the world as we know it. Ymir is the personification of the chaos before creation and can be used as a way of talking about unrealised potential. All in all he seems to perfectly sum up this project for me.
 
-If you got here, thanks for reading. [You can see my WIP Game Design Document here]() if you would like to read about the game itself.
+If you got here, thanks for reading. [You can see my WIP Game Design Document here](https://www.dantony.uk/project-ymir-game-design-document/) if you would like to read about the game itself.
