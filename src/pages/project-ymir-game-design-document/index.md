@@ -26,7 +26,7 @@ The world is created on a grid of 100 by 100 tiles known as the World Map with e
 
 An Area of the world can either be an open and explorable Wild Area where enemies can be fought, a Dungeon or a Hub Location. Some Wild Areas may contain entrances to dungeons that do not appear on the world map.
 
-As the player explores the world they will discover Fast Travel points that will allow them to travel instantly between other Fast travel points. All Hub Locations and Dungeons will contain Fast Travel points as well as some Wild Areas. Fast Travel points will require a Transport Crystal to activate. This means that in the early game the player cannot simply Fast Travel everywhere and skip the Wild areas. Completing a Dungeon and killing it's Elite will drop a Transport Crystal to allow the player to quickly return to a Hub Location in order to recover.
+As the player explores the world they will discover Fast Travel Points that will allow them to travel instantly between other Fast travel points. All Hub Locations and Dungeons will contain Fast Travel Points as well as some Wild Areas. Fast Travel Points will require a Transport Crystal to activate. This means that in the early game the player cannot simply Fast Travel everywhere and skip the Wild Areas. Completing a Dungeon and killing it's Elite will drop a Transport Crystal to allow the player to quickly return to a Hub Location in order to recover.
 
 #### Hub locations
 
@@ -34,7 +34,7 @@ There will be Hub Locations to discover and explore with each one being procedur
 
 ##### Camp
 
-The smallest Hub Location consisting of a bed to rest in, a Fast Travel Point and a shop to buy iems from
+The smallest Hub Location consisting of a bed to rest in, a Fast Travel Point and a shop to buy items from
 
 ##### Town
 
