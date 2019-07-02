@@ -27,6 +27,7 @@ const Hero = ({theme}) => {
 
     return (
         <div className={styles.heroContainer}>
+            <h1>S</h1>
             <Link to="/">
                 <img src={logo} alt="Dave Elliott's Blog" className={styles.logo} />
             </Link>
