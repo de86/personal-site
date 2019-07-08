@@ -60,7 +60,7 @@ Keeping the Open-Closed Principle in mind while developing allows to write code 
 
 ### tldr;
 
-A parent classes behaviour (return values/side effects) must not be changed in a child class. This allows any functions that call methods or properties from the parent class to accept any object that is a child class of that parent class. If  we are overriding methods to throw errors, stub them or completely alter their behaviour then a different inheritance structure should be considered.
+*A parent classes behaviour (return values/side effects) must not be changed in a child class. This allows any functions that call methods or properties from the parent class to accept any object that is a child class of that parent class. If  we are overriding methods to throw errors, stub them or completely alter their behaviour then a different inheritance structure should be considered.*
 
 > If for each object o(x) of type S there is an object o(y) of type T such that for all programs P defined in terms of T, the behavior of P is unchanged when o(x) is substituted for o(y) then S is a subtype of T
 
