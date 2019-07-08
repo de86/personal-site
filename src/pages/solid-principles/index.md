@@ -6,7 +6,7 @@ topic: "dev"
 
 ## What are the SOLID principles?
 
-SOLID is an acronym for a set of 5 object-oriented development principles that if understood and implemented properly can help you write maintainable, extensible code that is more robust, highly de-coupled less complex and less prone to bugs. The SOLID principles were introduced to us by Robert C. Martin, the author of Clean Code and have served the OO community well ever since.
+SOLID is an acronym for a set of 5 object-oriented development principles that if understood and implemented properly can help us write maintainable, extensible code that is more robust, highly de-coupled less complex and less prone to bugs. The SOLID principles were introduced to us by Robert C. Martin, the author of Clean Code and have served the OO community well ever since.
 
 These 5 principles are:
 
@@ -58,6 +58,10 @@ Keeping the Open-Closed Principle in mind while developing allows to write code 
 
 ## The Liskov Substitution principle
 
+### tldr;
+
+A parent classes behaviour (return values/side effects) must not be changed in a child class. This allows any functions that call methods or properties from the parent class to accept any object that is a child class of that parent class. If  we are overriding methods to throw errors, stub them or completely alter their behaviour then a different inheritance structure should be considered.
+
 > If for each object o(x) of type S there is an object o(y) of type T such that for all programs P defined in terms of T, the behavior of P is unchanged when o(x) is substituted for o(y) then S is a subtype of T
 
 Errr... What?
@@ -68,7 +72,7 @@ Well, Uncle Bob once simplified it as:
 
 Put simply, it means that a parent classes behaviour (return values/side effects) must not be changed in a child class. This allows any functions that call methods or properties from the parent class to accept any object that is a child class of that parent class.
 
-Keeping this principle in mind is a way to ensure that we are using inheritance correctly. After all, if a child class has changed the behaviour (return values/side effects) defined in the parent then that child class should not have inherited that method in the first place.
+Keeping this principle in mind is a way to ensure that we are using inheritance correctly. After all, if a child class has altered the behaviour (return values/side effects) defined in the parent then that child class should not have inherited that method in the first place.
 
 While looking for meaningful examples of the Liskov Substitution Principle I stumbled across one about penguins. I liked it, so I'm going to use a slightly modified version of that instead.
 
