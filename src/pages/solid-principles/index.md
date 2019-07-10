@@ -58,11 +58,11 @@ Keeping the Open-Closed Principle in mind while developing allows to write code 
 
 ## The Liskov Substitution principle
 
+> If for each object o(x) of type S there is an object o(y) of type T such that for all programs P defined in terms of T, the behavior of P is unchanged when o(x) is substituted for o(y) then S is a subtype of T
+
 ### tldr;
 
 *A parent classes behaviour (return values/side effects) must not be changed in a child class. This allows any functions that call methods or properties from the parent class to accept any object that is a child class of that parent class. If  we are overriding methods to throw errors, stub them or completely alter their behaviour then a different inheritance structure should be considered.*
-
-> If for each object o(x) of type S there is an object o(y) of type T such that for all programs P defined in terms of T, the behavior of P is unchanged when o(x) is substituted for o(y) then S is a subtype of T
 
 Errr... What?
 
@@ -118,3 +118,25 @@ Thin interfaces allow us to favour composition over inheritance which prevents d
 ##### [Robert C Martin - The Interface Segregation Principle, C++ Report](https://drive.google.com/file/d/0BwhCYaYDn8EgOTViYjJhYzMtMzYxMC00MzFjLWJjMzYtOGJiMDc5N2JkYmJi/view)
 
 ## The Dependency Inversion Principle
+
+> High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g. interfaces). Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
+
+### tldr;
+
+*A classes public functionality should be defined in an interface or abstract class. This means that any high-level classes that use it are not dependant on the concrete implementation of the low-level class itself. Both the high-level and low-level classes are dependant on the abstraction (interface).*
+
+The Dependency Inversion Principle should not be confused with dependency injection. That is a different topic for another day. Dependency inversion refers to inverting the hierarchy of class dependencies.
+
+This is better explained through an example. Let's assume that we have a StudentRecordManager class. The purpose of this class is to provide an api that allows us to create, add, edit and delete student records on our platform. The StudentRecordManager class contains a reference to an SQLDatabase class that allows us to connect and interact with our SQL database. This dependency would look like this:
+
+StudentRecordManager > SQLDatabase
+
+This would break the Dependency Inversion principle as our StudentRecordManager (the higher level class) is now dependant on the concrete implementation of the SQLDatabase class (the lower level class). Should the implementation of SQLDatabase change then there is a high chance we would need to change our StudentRecordManager class along with any other classes that make use of it. This also means we would be breaking the Open-Closed principle too.
+
+What we need to do here is *Invert the Dependency* of these classes. The higher level class should not depend on the concrete implementation of the lower level class. Both the higher level class and the lower level class should depend on an *abstraction* (interface). That would look something like this:
+
+StudentRecordManager > IDatabaseService < SQLDatabase
+
+To implement this we need to do a couple of things. The SQLDatabase class should implement the IDatabaseService interface. Previously we declared a reference directly to the SQLDatabase class in the StudentRecordManager class, we now declare it to be of type IDatabaseService.
+
+This gives us highly decoupled code. Should the implementation of SQLDatabase class change, or even be swapped out with a [MongoDB](https://thumbs.gfycat.com/BleakPositiveEft-small.gif) class for example, we don't need to refactor every class that uses it. This is because it implements the IDatabaseService interface. As long as any class that uses it declares it to be of type IDatabaseService we are guarenteed access to the methods defined in the abstraction.
