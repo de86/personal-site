@@ -140,3 +140,8 @@ StudentRecordManager > IDatabaseService < SQLDatabase
 To implement this we need to do a couple of things. The SQLDatabase class should implement the IDatabaseService interface. Previously we declared a reference directly to the SQLDatabase class in the StudentRecordManager class, we now declare it to be of type IDatabaseService.
 
 This gives us highly decoupled code. Should the implementation of SQLDatabase class change, or even be swapped out with a [MongoDB](https://thumbs.gfycat.com/BleakPositiveEft-small.gif) class for example, we don't need to refactor every class that uses it. This is because it implements the IDatabaseService interface. As long as any class that uses it declares it to be of type IDatabaseService we are guarenteed access to the methods defined in the abstraction.
+
+#### Sources
+
+##### [Wikipedia - The Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
+##### [Tom Dalling - SOLID Class Design: The Dependency Inversion Principle, TomDalling.com](https://www.tomdalling.com/blog/software-design/solid-class-design-the-liskov-substitution-principle)
