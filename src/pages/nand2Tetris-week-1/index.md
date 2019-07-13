@@ -186,4 +186,4 @@ Remember those things I mentioned right at the beginning of this post and promis
 
 I had originally planned to write-up all of week 1 in this post, however, in the interests of keeping reading times a bit lower I will continue this write up in part 2. We'll talk about HDL (Hardware Design Language), Logic Gates, implementation and my thought process (Spoiler: Staring at the screen for long periods of time until things made sense).
 
-Thanks for reading. And I'll see you in part 2.
+Thanks for reading. And I'll see you in part 2. If you really can't wait can't wait (I know, it's this stuff is *thrilling*) you can see my implementation of the logic gates required for week 1 on [my github here](https://github.com/de86/nand2tetris/tree/master/week1-hdl). All the good stuff is in the *.hdl files.
