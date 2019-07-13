@@ -1,5 +1,5 @@
 ---
-title: "Nand2Tetris - Week 1 - Logic Gates"
+title: "Nand2Tetris - Week 1 - Logic Gates Part 1"
 date: "2019-07-13T17:30:00.000Z"
 topic: "dev"
 ---
@@ -65,7 +65,7 @@ NOT is a unary operator which means it takes only one input. NOT will invert the
 
 <br />
 
-As you can see, although the data and operations here are presented slightly differently than you may have seen before, the functionality should be very familiar to anyone with any experience of development.
+As you can see, although the data and operations here are presented slightly differently than you may have seen before, the functionality of these operations should be very familiar to anyone with any experience of development.
 
 ### Boolean Functions
 
@@ -73,7 +73,7 @@ Just as with Mafs (That's how most people say Math up here in 'north) and develo
 
 *f*(x, y, z) = (x AND y) OR z
 
-We can also describe our function in the form of a truth table. This will show us exactly what the result of our function will be for any set of given parameters. For example:
+We can also describe our function in the form of a truth table. This will show us exactly what the result of our function will be for any set of given parameters. The example below has columns x, y and z shows us the values of those parameters and the *f* column shows us the result of the function given those parameters.
 
 |x|y|z|*f*|
 |--|--|--|--|
@@ -86,9 +86,11 @@ We can also describe our function in the form of a truth table. This will show u
 |1|1|0|1|
 |1|1|1|1|
 
+<br />
+
 ### Boolean Identities
 
-Boolean Identities are a set of rules that prove equality between expressions. For that reason I prefer to think of them as Boolean Equalities as to me, that better describes what they are (variable naming 101!). An example of these Boolean Equalities (Identities) are the Commutative Laws. These state that (x AND y) will always be equal to (y AND x) and that (x OR y) will always equal (y OR x). We can use these different laws to reduce larger boolean functions down to smaller, more manageable ones. Below is a list of these laws.
+Boolean Identities are a set of rules that prove equality between expressions. For that reason I prefer to think of them as Boolean Equalities. To me, that better describes what they are (variable naming 101 yo!). An example of these Boolean Identities are the Commutative Laws. These state that (x AND y) will always be equal to (y AND x) and that (x OR y) will always equal (y OR x). We can use these different laws to reduce larger boolean functions down to smaller, more manageable ones. Below is a list of these laws.
 
 #### Commutative Laws
 
@@ -110,9 +112,13 @@ Boolean Identities are a set of rules that prove equality between expressions. F
 - NOT(x AND y) = NOT(x) OR NOT(y)
 - NOT(x OR y) = NOT(x) AND NOT(y)
 
+<br />
+
 ### Building Boolean Functions from Truth Tables
 
-Now that we know how to build truth tables from boolean expressions and functions we now need to learn how to construct boolean functions from truth tables. When creating logic gates we will know what we want the gate to do beforehand. That functionality is usually defined in the form of a truth table. It's the creators job to take that truth table and build the logic gate using the boolean expressions we learned earlier.
+Now that we know how to build truth tables from boolean expressions and functions we now need to learn how to construct boolean functions from truth tables.
+
+When creating logic gates we will know what we want the gate to do beforehand. That functionality is usually defined in the form of a truth table. It's the creators job to take that truth table and build the logic gate using the boolean expressions we learned earlier.
 
 Creating a boolean function from a truth table is actually pretty simple. We move down the truth table one row at a time creating a boolean function for each row that should return a 1. Then we can combine each of those functions with an OR to give us a function that represents the whole table.
 
@@ -133,7 +139,7 @@ Lets work through an example below.
 |1|1|0|0|-|
 |1|1|1|0|-|
 
-Looking at the table above there are 4 rows that will return a 1 (*f* column). I have marked those rows with a function ID that corresponds to the functions below. Now we can build those functions using the NOT expression where a parameters value equals 0 and just the parameter name where a parameters value equals 1.
+Looking at the table above there are 4 rows that will return a 1 (*f* column). I have marked those rows with a function ID that corresponds to the functions below (Forgive the layout, these posts are written in Mardown so formatting isn't great sometimes). Now we can build those functions using the NOT expression where a parameters value equals 0 and just the parameter name where a parameters value equals 1.
 
 <br />
 
