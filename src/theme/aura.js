@@ -22,6 +22,13 @@ export default {
   bodyWeight: 400,
   boldWeight: 700,
   overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
+    '#site-wrapper': {
+      transition: '0.2s'
+    },
+    '[data-mode="dark"]#site-wrapper': {
+      backgroundColor: '#1e1e1e',
+      color: '#efefef'
+    },
     '[data-theme="game-dev"] h1, [data-theme="game-dev"] h2, [data-theme="game-dev"] h3, [data-theme="game-dev"] h4, [data-theme="game-dev"] h5': {
       color: '#fb50b0',
     },
@@ -89,10 +96,13 @@ export default {
         borderLeft: `${rhythm(3 / 16)} solid #30dc59`,
     },
     pre: {
-        backgroundColor: '#f0f6f8',
+        backgroundColor: '#efefef',
         borderRadius: '3px',
         padding: '15px',
         overflow: 'scroll'
+    },
+    '[data-mode="dark"] pre': {
+      color: '#1f1f1f'
     },
     [MOBILE_MEDIA_QUERY]: {
       html: {

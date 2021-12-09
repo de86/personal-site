@@ -1,35 +1,45 @@
 import React from 'react';
 
 import styles from './styles.module.css';
-import Themes from '../../../enums/themes';
 
-import Navigation from '../../Navigation';
 import Hero from '../../Hero';
-
-
-const themes = [Themes.Dev, Themes.GameDev, Themes.Other]
-
-function getTheme(pathname) {
-    const topic = pathname.replace('/', '');
-
-    if (themes.find(theme => theme === topic )) {
-        return topic
-    } else {
-        return themes[Math.floor(Math.random() * themes.length)]
-    }
-}
-
+import DarkModeToggle from '../../DarkModeToggle';
 
 class HomeLayout extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      mode: "dark"
+    }
+
+    this.onClickToggleDarkMode = this.onClickToggleDarkMode.bind(this);
+  }
+
+  componentDidMount () {
+    const mode = localStorage.getItem('mode');
+    console.log(mode)
+
+    if (mode) {
+      this.setState({mode});
+    }
+  }
+
+  onClickToggleDarkMode () {
+    const currentMode = this.state.mode;
+    const mode = currentMode === "dark" ? "light" : "dark";
+    this.setState({mode});
+    localStorage.setItem('mode', mode);
+  }
+
   render() {
-    const theme = getTheme(this.props.location.pathname);
+    const {theme} = this.props;
 
     return (
-      <div className={styles.wrapper} data-theme={theme}>
+      <div id={"site-wrapper"} className={styles.wrapper} data-theme={theme} data-mode={this.state.mode}>
         <div className={styles.gradientFill}/>
         <Hero theme={theme}/>
-        <Navigation />
         {this.props.children}
+        <DarkModeToggle updateMode={this.onClickToggleDarkMode} />
         <div className={styles.footer}>
             &copy; David Antony Elliott 2019
         </div>

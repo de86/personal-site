@@ -26,7 +26,6 @@ const PostPreview = ({slug, title, excerpt, date, theme}) => {
           className={styles.excerptText}
           dangerouslySetInnerHTML={{ __html: excerpt }}
         />
-        <span className={styles.topic}>{topic}</span>
       </div>
     </div>
   );

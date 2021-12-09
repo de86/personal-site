@@ -1,0 +1,24 @@
+.darkModeToggle {
+    position: fixed;
+    bottom: 75px;
+    right: -20px;
+    padding: 5px;
+    border-top-left-radius: 15%;
+    border-bottom-left-radius: 15%;
+    height: 48px;
+    width: 60px;
+    transition: 0.2s;
+}
+
+.darkModeToggle:hover {
+    right: 0px;
+    cursor: pointer;
+}
+
+[data-mode="light"] .darkModeToggle {
+    background-color: #1e1e1e;
+}
+
+[data-mode="dark"] .darkModeToggle {
+    background-color: #efefef;
+}

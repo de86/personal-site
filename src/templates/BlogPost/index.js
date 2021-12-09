@@ -3,7 +3,8 @@ import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import get from 'lodash/get';
 
-import styles from './styles.module.css';
+import {getTheme} from '../../utils/utilities';
+import styles  from './styles.module.css';
 
 import Bio from '../../components/Bio';
 import BlogPostLayout from '../../components/Layout/BlogPostLayout';
@@ -12,12 +13,12 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
-    const { topic } = this.props.data.markdownRemark.frontmatter;
+    const theme = getTheme(this.props.location.pathname);
     const siteDescription = post.excerpt;
     const { previous, next } = this.props.pageContext;
 
     return (
-      <BlogPostLayout location={this.props.location} theme={topic}>
+      <BlogPostLayout location={this.props.location} theme={theme}>
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}

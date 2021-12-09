@@ -2,9 +2,6 @@
     padding: 20px 0;
     transition: background-color 0.2s;
 }
-.row:hover {
-    background-color: #f3f3f3;
-}
 
 .container {
     margin-left: auto;
@@ -34,18 +31,6 @@
 
 .excerptText {
     margin: 12px 0 0;
-}
-
-.row[data-theme="dev"]:hover {
-    background-color: #f0f4ff;
-}
-
-.row[data-theme="game-dev"]:hover {
-    background-color: #fff1e9;
-}
-
-.row[data-theme="other"]:hover{
-    background-color: #ebffed;
 }
 
 .row[data-theme="dev"] .titleLink,

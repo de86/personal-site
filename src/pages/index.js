@@ -3,6 +3,8 @@ import { graphql } from 'gatsby';
 import get from 'lodash/get';
 import Helmet from 'react-helmet';
 
+import {getTheme} from '../utils/utilities';
+
 import Layout from '../components/Layout/HomeLayout';
 import PostPreviewList from '../components/PostPreviewList';
 
@@ -12,14 +14,16 @@ class BlogIndex extends React.Component {
     const siteDescription = get(this, 'props.data.site.siteMetadata.description');
     const posts = get(this, 'props.data.allMarkdownRemark.edges');
 
+    const theme = getTheme(this.props.location.pathname);
+
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} theme={theme}>
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        <PostPreviewList posts={posts} />
+        <PostPreviewList posts={posts} theme={theme} />
       </Layout>
     );
   }

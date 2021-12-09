@@ -9,9 +9,9 @@ import logo_gradient_orange from '../../assets/logo_gradient_orange.svg';
 import logo_gradient_green from '../../assets/logo_gradient_green.svg';
 
 const Hero = ({theme}) => {
-
     let logo = logo_gradient_blue;
 
+    console.log(theme)
     switch (theme) {
         case Themes.GameDev:
             logo = logo_gradient_orange;
