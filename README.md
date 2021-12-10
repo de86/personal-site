@@ -1,9 +1,3 @@
-# gatsby-starter-blog
-Gatsby starter for creating a blog
+# Personal blog site
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-
-`gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog`
-
-## Running in development
-`gatsby develop`
+The personal blog of Dave Elliott. www.dantony.uk Will it ever be regularly updated? Nobody knows!
